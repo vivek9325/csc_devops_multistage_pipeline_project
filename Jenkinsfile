@@ -33,14 +33,6 @@ pipeline {
                 }
             }
         }
-
-
-            steps {
-                withSonarQubeEnv('vk-sonarqube-server') {
-                    sh "${scannerHome}/bin/sonar-scanner"
-                }
-            }
-        }
         
         stage('Hello') {
             steps {
@@ -48,4 +40,3 @@ pipeline {
             }
         }
     }
-}
