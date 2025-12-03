@@ -33,6 +33,17 @@ pipeline {
                 }
             }
         }
+
+        stage('Build-Docker-Image') {
+            steps {
+                script {
+                    sh """
+                    echo 'Building Docker Image using custom Dockerfile...'
+                    docker build -t tweet-ttrend:latest -f /home/ubuntu/jenkins/workspace/_trend_multibranch_pipeline_main/Dockerfile .
+                    """
+                    }
+                }
+            }
         
         stage('Hello') {
             steps {
